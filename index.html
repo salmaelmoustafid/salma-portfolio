@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salma El Moustafid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html, body { width:100%; height:100%; overflow:hidden; }
+
+    .sky-bg {
+      position:fixed; inset:0; z-index:0;
+      animation:skyShift 12s ease-in-out infinite alternate;
+    }
+    @keyframes skyShift {
+      0%   { background:linear-gradient(180deg,#6aaed8 0%,#9cc8ee 30%,#b8dcf4 60%,#d0eaf8 100%); }
+      100% { background:linear-gradient(180deg,#78b2dc 0%,#a2ccee 30%,#bcd8f2 60%,#d4ecf8 100%); }
+    }
+    .sky-blob { position:fixed; z-index:1; border-radius:50%; filter:blur(80px); opacity:0.35; pointer-events:none; }
+    .blob1 { width:600px;height:400px;top:-100px;left:-100px; background:radial-gradient(ellipse,#b0d4f0 0%,transparent 70%); animation:drift1 18s ease-in-out infinite alternate; }
+    .blob2 { width:500px;height:500px;top:20%;right:-150px; background:radial-gradient(ellipse,#c8e4f8 0%,transparent 70%); animation:drift2 22s ease-in-out infinite alternate; }
+    .blob3 { width:700px;height:350px;bottom:-80px;left:20%; background:radial-gradient(ellipse,#a0c8e8 0%,transparent 70%); animation:drift3 16s ease-in-out infinite alternate; }
+    @keyframes drift1{0%{transform:translate(0,0)}100%{transform:translate(80px,60px)}}
+    @keyframes drift2{0%{transform:translate(0,0)}100%{transform:translate(-60px,80px)}}
+    @keyframes drift3{0%{transform:translate(0,0)}100%{transform:translate(70px,-50px)}}
+
+    .video-bg { position:fixed;inset:0;z-index:2;pointer-events:none; }
+    .video-bg video { width:100%;height:100%;object-fit:cover;opacity:0.75;mix-blend-mode:luminosity; }
+
+    /* TOP NAV */
+    .top-nav {
+      position:fixed;top:0;left:0;right:0;z-index:200;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:22px 48px;
+      background:linear-gradient(to bottom,rgba(100,160,210,0.2) 0%,transparent 100%);
+    }
+    .top-nav .logo { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#0d2d50;font-weight:300;letter-spacing:0.08em; }
+    .top-nav .nav-links { display:flex;gap:28px;list-style:none; }
+    .top-nav .nav-links a { font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#1a4060;text-decoration:none;font-weight:300;transition:color 0.3s; }
+    .top-nav .nav-links a:hover { color:#0a2030; }
+
+    /* HERO TEXT */
+    .hero-text { position:fixed;bottom:58px;left:54px;z-index:150;animation:fadeUp 1.4s cubic-bezier(0.16,1,0.3,1) both; }
+    .hero-text .eyebrow { font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(10,37,64,0.65);margin-bottom:10px;font-weight:300; }
+    .hero-text h1 { font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,80px);font-weight:300;line-height:1.05;color:#0d2d50; }
+    .hero-text h1 em { font-style:italic;color:#1a5080; }
+    .hero-text .sub { margin-top:12px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.14em;font-weight:300;color:rgba(10,37,64,0.6);text-transform:uppercase; }
+    .contact-btn { display:inline-block;margin-top:20px;padding:9px 24px;border:1px solid rgba(10,50,100,0.35);border-radius:5px;background:rgba(255,255,255,0.25);backdrop-filter:blur(10px);font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#0a2540;text-decoration:none;transition:background 0.3s; }
+    .contact-btn:hover { background:rgba(255,255,255,0.4); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    /* INVITE PILL — small, subtle, not a circle */
+    .invite-pill {
+      position:fixed;
+      /* center horizontally, vertically centered but slightly upper-center */
+      top:50%; left:50%;
+      transform:translate(-50%, -50%);
+      z-index:90;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+      pointer-events:none;
+      animation:floatPill 4s ease-in-out infinite;
+    }
+    .invite-pill .pill-text {
+      font-family:'Cormorant Garamond',serif;
+      font-size:15px; font-style:italic;
+      color:#0d2d50;
+      background:rgba(255,255,255,0.4);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.7);
+      border-radius:40px;
+      padding:10px 24px;
+      white-space:normal;
+      box-shadow:0 4px 20px rgba(100,160,220,0.2);
+    }
+    .invite-pill .pill-sub {
+      font-family:'DM Sans',sans-serif;
+      font-size:9px; letter-spacing:0.2em; text-transform:uppercase;
+      color:rgba(10,40,80,0.45);
+    }
+    @keyframes floatPill {
+      0%,100%{transform:translate(-50%,-50%) translateY(0)}
+      50%{transform:translate(-50%,-50%) translateY(-8px)}
+    }
+
+    /* CLOUD SCENE */
+    #cloudScene { position:fixed;inset:0;z-index:100;pointer-events:none; }
+    .cloud { position:absolute;pointer-events:all;cursor:grab;user-select:none; }
+    .cloud.dragging { cursor:grabbing;z-index:999!important; }
+
+    .cloud-label {
+      position:absolute;
+      top:52%; left:50%;
+      transform:translate(-50%,-50%);
+      width:78%;
+      text-align:center;
+      font-family:'Gluten',cursive;
+      font-weight:600;
+      color:#2a5a80;
+      pointer-events:none;
+      line-height:1.1;
+      white-space:normal;
+      text-shadow:0 2px 8px rgba(100,160,220,0.3),0 1px 3px rgba(255,255,255,0.7);
+    }
+    .cloud:hover .cloud-label { color:#0d2d50; }
+
+    @keyframes fa{0%,100%{transform:translateY(0)}    50%{transform:translateY(-14px)}}
+    @keyframes fb{0%,100%{transform:translateY(-6px)} 50%{transform:translateY(10px)}}
+    @keyframes fc{0%,100%{transform:translateY(4px)}  50%{transform:translateY(-11px)}}
+    @keyframes fd{0%,100%{transform:translateY(-3px)} 50%{transform:translateY(13px)}}
+    @keyframes fe{0%,100%{transform:translateY(6px)}  50%{transform:translateY(-9px)}}
+    @keyframes ff{0%,100%{transform:translateY(2px)}  50%{transform:translateY(-13px)}}
+
+    .hint { position:fixed;bottom:26px;right:42px;z-index:150;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(10,40,80,0.35);writing-mode:vertical-rl; }
+  </style>
+</head>
+<body>
+  <div class="sky-bg"></div>
+  <div class="sky-blob blob1"></div>
+  <div class="sky-blob blob2"></div>
+  <div class="sky-blob blob3"></div>
+  <div class="video-bg"><video autoplay muted loop playsinline><source src="test.mp4" type="video/mp4"/></video></div>
+
+  <nav class="top-nav">
+    <span class="top-nav logo">Salma El Moustafid</span>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="artifacts.html">Artifacts</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-text">
+    <p class="eyebrow">Portfolio</p>
+    <h1>Salma<br/><em>El Moustafid</em></h1>
+    <p class="sub">Marketing Strategist · Researcher · Multilingual</p>
+    <a href="contact.html" class="contact-btn">Get in touch</a>
+  </div>
+
+  <!-- INVITE PILL -->
+  <div class="invite-pill">
+    <div class="pill-text">Choose where to fly ✦</div>
+    <div class="pill-sub">drag · click · explore</div>
+  </div>
+
+  <div id="cloudScene"></div>
+  <span class="hint">Drag ✦</span>
+
+  <script>
+    function makeCloud(seed) {
+      const layouts = [
+        [{cx:48,cy:62,r:25},{cx:78,cy:47,r:31},{cx:114,cy:42,r:35},{cx:150,cy:48,r:29},{cx:178,cy:63,r:22}],
+        [{cx:44,cy:64,r:23},{cx:76,cy:49,r:29},{cx:112,cy:43,r:33},{cx:147,cy:50,r:27},{cx:174,cy:65,r:20}],
+        [{cx:52,cy:60,r:27},{cx:84,cy:44,r:33},{cx:122,cy:39,r:37},{cx:156,cy:45,r:31},{cx:182,cy:61,r:24}],
+        [{cx:46,cy:63,r:24},{cx:80,cy:46,r:32},{cx:116,cy:41,r:36},{cx:152,cy:47,r:28},{cx:176,cy:62,r:21}],
+        [{cx:50,cy:61,r:26},{cx:82,cy:45,r:32},{cx:118,cy:40,r:36},{cx:154,cy:46,r:30},{cx:180,cy:62,r:23}],
+        [{cx:43,cy:65,r:22},{cx:74,cy:50,r:28},{cx:110,cy:44,r:32},{cx:145,cy:51,r:26},{cx:171,cy:66,r:19}],
+      ];
+      const bubbles = layouts[seed % layouts.length];
+      const circles = bubbles.map(b=>`<circle cx="${b.cx}" cy="${b.cy}" r="${b.r}" fill="white"/>`).join('');
+      return `<svg viewBox="0 0 230 108" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+          <radialGradient id="g${seed}" cx="38%" cy="28%" r="68%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#eaf4fc"/>
+          </radialGradient>
+          <filter id="f${seed}">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="shadow"/>
+            <feOffset dx="0" dy="5" result="shadow"/>
+            <feFlood flood-color="#88b8d8" flood-opacity="0.18" result="color"/>
+            <feComposite in="color" in2="shadow" operator="in"/>
+            <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <g filter="url(#f${seed})">
+          <ellipse cx="114" cy="82" rx="84" ry="20" fill="url(#g${seed})"/>
+          ${circles}
+          <ellipse cx="114" cy="70" rx="82" ry="14" fill="white" opacity="0.5"/>
+        </g>
+        <ellipse cx="96" cy="47" rx="26" ry="14" fill="rgba(255,255,255,0.55)"/>
+      </svg>`;
+    }
+
+    // Clouds placed around the EDGES of screen — top corners, sides, bottom
+    // avoiding center (where invite pill is) and bottom-left (where name is)
+    // All clouds bigger: w 300-340, h 160-180
+    // font-size calculated per cloud based on label length vs cloud width
+    const pages = [
+      // TOP ROW — left and right of center
+      {label:"About",             href:"about.html",      w:310,h:166, sx:0.04, sy:0.06, a:"fa",d:"7s",  dl:"0s"  },
+      {label:"Experience",        href:"experience.html", w:340,h:182, sx:0.58, sy:0.05, a:"fb",d:"8.5s",dl:"1.1s"},
+      // MIDDLE ROW — pushed to far left and far right
+      {label:"Research",          href:"research.html",   w:330,h:177, sx:0.02, sy:0.38, a:"fc",d:"7.5s",dl:"0.9s"},
+      {label:"Education",         href:"education.html",  w:320,h:171, sx:0.68, sy:0.36, a:"fd",d:"6.8s",dl:"0.6s"},
+      // BOTTOM ROW — away from name (bottom-left is taken by hero text)
+      {label:"Skills & Languages",href:"skills.html",     w:350,h:188, sx:0.34, sy:0.68, a:"fe",d:"9s",  dl:"1.7s"},
+      {label:"Artifacts",         href:"artifacts.html",  w:310,h:166, sx:0.65, sy:0.68, a:"ff",d:"8s",  dl:"2s"  },
+    ];
+
+    const scene = document.getElementById('cloudScene');
+    const W = window.innerWidth, H = window.innerHeight;
+
+    pages.forEach((p, i) => {
+      const el = document.createElement('div');
+      el.className = 'cloud';
+      el.style.cssText = `width:${p.w}px;height:${p.h}px;left:${Math.round(p.sx*W)}px;top:${Math.round(p.sy*H)}px;z-index:${110+i};animation:${p.a} ${p.d} ${p.dl} ease-in-out infinite;`;
+      el.innerHTML = makeCloud(i);
+
+      const label = document.createElement('div');
+      label.className = 'cloud-label';
+      label.innerHTML = p.label.replace(' & ', ' &<br/>');
+      // Font size: scale to fit — shorter labels get bigger font
+      const charCount = p.label.length;
+      const fs = charCount <= 8 ? 22 : charCount <= 12 ? 18 : 15;
+      label.style.fontSize = '19px';
+      el.appendChild(label);
+
+      let isDragging=false, moved=false, dragStartX, dragStartY, elStartX, elStartY;
+
+      el.addEventListener('mousedown', e => {
+        e.preventDefault(); isDragging=true; moved=false;
+        dragStartX=e.clientX; dragStartY=e.clientY;
+        const r=el.getBoundingClientRect(); elStartX=r.left; elStartY=r.top;
+        el.classList.add('dragging'); el.style.animation='none';
+        el.style.left=elStartX+'px'; el.style.top=elStartY+'px';
+      });
+      document.addEventListener('mousemove', e => {
+        if(!isDragging) return;
+        const dx=e.clientX-dragStartX, dy=e.clientY-dragStartY;
+        if(Math.abs(dx)>4||Math.abs(dy)>4) moved=true;
+        el.style.left=(elStartX+dx)+'px'; el.style.top=(elStartY+dy)+'px';
+      });
+      document.addEventListener('mouseup', () => {
+        if(!isDragging) return;
+        isDragging=false; el.classList.remove('dragging');
+        if(!moved) window.location.href=p.href;
+        else el.style.animation=`${p.a} ${p.d} ${p.dl} ease-in-out infinite`;
+      });
+      el.addEventListener('touchstart', e => {
+        const t=e.touches[0]; isDragging=true; moved=false;
+        dragStartX=t.clientX; dragStartY=t.clientY;
+        const r=el.getBoundingClientRect(); elStartX=r.left; elStartY=r.top;
+        el.classList.add('dragging'); el.style.animation='none';
+        el.style.left=elStartX+'px'; el.style.top=elStartY+'px';
+      },{passive:true});
+      el.addEventListener('touchmove', e => {
+        if(!isDragging) return;
+        const t=e.touches[0];
+        const dx=t.clientX-dragStartX, dy=t.clientY-dragStartY;
+        if(Math.abs(dx)>4||Math.abs(dy)>4) moved=true;
+        el.style.left=(elStartX+dx)+'px'; el.style.top=(elStartY+dy)+'px';
+      },{passive:true});
+      el.addEventListener('touchend', () => {
+        isDragging=false; el.classList.remove('dragging');
+        if(!moved) window.location.href=p.href;
+        else el.style.animation=`${p.a} ${p.d} ${p.dl} ease-in-out infinite`;
+      });
+
+      scene.appendChild(el);
+    });
+  </script>
+</body>
+</html>

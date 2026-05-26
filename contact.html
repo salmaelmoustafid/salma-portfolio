@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Salma El Moustafid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html,body{width:100%;min-height:100%;font-family:'DM Sans',sans-serif;}
+    .sky-bg{position:fixed;inset:0;z-index:0;animation:skyShift 12s ease-in-out infinite alternate;}
+    @keyframes skyShift{0%{background:linear-gradient(180deg,#6aaed8 0%,#9cc8ee 30%,#b8dcf4 60%,#d0eaf8 100%);}100%{background:linear-gradient(180deg,#78b2dc 0%,#a2ccee 30%,#bcd8f2 60%,#d4ecf8 100%);}}
+    .blob{position:fixed;z-index:1;border-radius:50%;filter:blur(80px);opacity:0.3;pointer-events:none;}
+    .b1{width:600px;height:400px;top:-100px;left:-100px;background:radial-gradient(ellipse,#b0d4f0 0%,transparent 70%);animation:d1 18s ease-in-out infinite alternate;}
+    .b2{width:500px;height:500px;top:20%;right:-150px;background:radial-gradient(ellipse,#c8e4f8 0%,transparent 70%);animation:d2 22s ease-in-out infinite alternate;}
+    @keyframes d1{0%{transform:translate(0,0)}100%{transform:translate(80px,60px)}}
+    @keyframes d2{0%{transform:translate(0,0)}100%{transform:translate(-60px,80px)}}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:22px 48px;background:linear-gradient(to bottom,rgba(100,160,210,0.2) 0%,transparent 100%);}
+    .logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#0d2d50;font-weight:300;letter-spacing:0.08em;text-decoration:none;}
+    .nav-links{display:flex;gap:24px;list-style:none;}
+    .nav-links a{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#1a4060;text-decoration:none;font-weight:300;transition:color 0.3s;}
+    .nav-links a:hover{color:#0a2030;}
+    .page-wrap{position:relative;z-index:10;min-height:100vh;padding:110px 80px 80px;max-width:700px;}
+    .back{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#3a6890;text-decoration:none;margin-bottom:40px;transition:color 0.3s;}
+    .back:hover{color:#0d2d50;}
+    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);font-weight:400;line-height:1.05;color:#071828;margin-bottom:44px;}
+    h1 em{font-style:italic;color:#1a5a8a;}
+    .card{background:rgba(255,255,255,0.42);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.85);border-radius:20px;padding:34px 38px;margin-bottom:24px;box-shadow:0 0 0 6px rgba(255,255,255,0.18),0 0 32px 8px rgba(255,255,255,0.22),0 8px 32px rgba(100,160,220,0.12);animation:floatCard 6s ease-in-out infinite;}
+    @keyframes floatCard{0%,100%{transform:translateY(0px)}50%{transform:translateY(-6px)}}
+    .card:nth-child(2){animation-delay:0.8s}.card:nth-child(3){animation-delay:1.6s}.card:nth-child(4){animation-delay:2.4s}.card:nth-child(5){animation-delay:3.2s}
+    .card:hover{background:rgba(255,255,255,0.62);}
+    .card h2{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#071828;margin-bottom:10px;}
+    .card a{font-size:15px;color:#1a5a8a;text-decoration:none;display:block;transition:color 0.3s;}
+    .card a:hover{color:#071828;}
+    .card p{font-size:14px;color:#1a3a58;font-weight:300;line-height:1.7;}
+  </style>
+</head>
+<body>
+  <div class="sky-bg"></div><div class="blob b1"></div><div class="blob b2"></div>
+  <nav>
+    <a href="index.html" class="logo">Salma El Moustafid</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li><li><a href="experience.html">Experience</a></li>
+      <li><a href="education.html">Education</a></li><li><a href="skills.html">Skills</a></li>
+      <li><a href="research.html">Research</a></li><li><a href="artifacts.html">Artifacts</a></li>
+    </ul>
+  </nav>
+  <div class="page-wrap">
+    <a href="index.html" class="back">&#8592; Back to sky</a>
+    <h1>Get in <em>Touch</em></h1>
+    <div class="card">
+      <h2>Email</h2>
+      <a href="mailto:salmaelmoustafid@gmail.com">salmaelmoustafid@gmail.com</a>
+    </div>
+    <div class="card">
+      <h2>Phone</h2>
+      <a href="tel:+34691273276">+34 691 273 276</a>
+      <a href="tel:+212637034726" style="margin-top:6px">+212 637 034 726</a>
+    </div>
+    <div class="card">
+      <h2>LinkedIn</h2>
+      <a href="https://www.linkedin.com/in/salma-el-moustafid" target="_blank">linkedin.com/in/salma-el-moustafid</a>
+    </div>
+    <div class="card">
+      <h2>Based in</h2>
+      <p>Madrid, Spain &nbsp;·&nbsp; Open to opportunities across Europe and beyond</p>
+    </div>
+  </div>
+</body>
+</html>
