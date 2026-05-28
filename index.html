@@ -139,5 +139,139 @@
       scene.appendChild(el);
     });
   </script>
+
+<div class="mobile-nav">
+  <div class="mobile-invite">Choose where to fly ✦</div>
+  <div class="mobile-nav-row">
+    <a href="about.html" class="mobile-cloud">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mg0" cx="38%" cy="28%" r="68%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#eaf4fc"/></radialGradient></defs><ellipse cx="80" cy="62" rx="58" ry="15" fill="url(#mg0)"/><circle cx="32" cy="44" r="18" fill="white"/><circle cx="54" cy="34" r="22" fill="white"/><circle cx="80" cy="30" r="24" fill="white"/><circle cx="106" cy="34" r="20" fill="white"/><circle cx="126" cy="44" r="16" fill="white"/><ellipse cx="80" cy="50" rx="56" ry="12" fill="white" opacity="0.5"/></svg>
+      <span>About</span>
+    </a>
+    <a href="experience.html" class="mobile-cloud">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mg1" cx="38%" cy="28%" r="68%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#eaf4fc"/></radialGradient></defs><ellipse cx="80" cy="62" rx="58" ry="15" fill="url(#mg1)"/><circle cx="30" cy="45" r="17" fill="white"/><circle cx="52" cy="35" r="21" fill="white"/><circle cx="80" cy="30" r="25" fill="white"/><circle cx="108" cy="35" r="21" fill="white"/><circle cx="128" cy="45" r="16" fill="white"/><ellipse cx="80" cy="50" rx="56" ry="12" fill="white" opacity="0.5"/></svg>
+      <span>Experience</span>
+    </a>
+  </div>
+  <div class="mobile-nav-row">
+    <a href="education.html" class="mobile-cloud">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mg2" cx="38%" cy="28%" r="68%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#eaf4fc"/></radialGradient></defs><ellipse cx="80" cy="62" rx="58" ry="15" fill="url(#mg2)"/><circle cx="33" cy="44" r="18" fill="white"/><circle cx="55" cy="33" r="23" fill="white"/><circle cx="80" cy="29" r="25" fill="white"/><circle cx="107" cy="33" r="21" fill="white"/><circle cx="127" cy="44" r="16" fill="white"/><ellipse cx="80" cy="50" rx="56" ry="12" fill="white" opacity="0.5"/></svg>
+      <span>Education</span>
+    </a>
+    <a href="skills.html" class="mobile-cloud">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mg3" cx="38%" cy="28%" r="68%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#eaf4fc"/></radialGradient></defs><ellipse cx="80" cy="62" rx="58" ry="15" fill="url(#mg3)"/><circle cx="31" cy="45" r="17" fill="white"/><circle cx="53" cy="34" r="22" fill="white"/><circle cx="80" cy="30" r="24" fill="white"/><circle cx="107" cy="34" r="20" fill="white"/><circle cx="127" cy="45" r="16" fill="white"/><ellipse cx="80" cy="50" rx="56" ry="12" fill="white" opacity="0.5"/></svg>
+      <span>Skills &<br/>Languages</span>
+    </a>
+  </div>
+  <div class="mobile-nav-row">
+    <a href="research.html" class="mobile-cloud">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mg4" cx="38%" cy="28%" r="68%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#eaf4fc"/></radialGradient></defs><ellipse cx="80" cy="62" rx="58" ry="15" fill="url(#mg4)"/><circle cx="32" cy="44" r="18" fill="white"/><circle cx="54" cy="33" r="22" fill="white"/><circle cx="80" cy="29" r="25" fill="white"/><circle cx="106" cy="33" r="21" fill="white"/><circle cx="126" cy="44" r="16" fill="white"/><ellipse cx="80" cy="50" rx="56" ry="12" fill="white" opacity="0.5"/></svg>
+      <span>Research</span>
+    </a>
+    <a href="artifacts.html" class="mobile-cloud">
+      <svg viewBox="0 0 160 80" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mg5" cx="38%" cy="28%" r="68%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#eaf4fc"/></radialGradient></defs><ellipse cx="80" cy="62" rx="58" ry="15" fill="url(#mg5)"/><circle cx="30" cy="45" r="17" fill="white"/><circle cx="52" cy="34" r="21" fill="white"/><circle cx="80" cy="30" r="24" fill="white"/><circle cx="108" cy="34" r="21" fill="white"/><circle cx="128" cy="45" r="16" fill="white"/><ellipse cx="80" cy="50" rx="56" ry="12" fill="white" opacity="0.5"/></svg>
+      <span>Artifacts</span>
+    </a>
+  </div>
+  <a href="contact.html" class="mobile-contact">Get in touch</a>
+</div>
 </body>
 </html>
+<style>
+@media (max-width: 768px) {
+  /* Hide floating clouds on mobile */
+  #cloudScene { display: none !important; }
+  .invite-pill { display: none !important; }
+  .hint { display: none !important; }
+
+  /* Nav */
+  nav { padding: 16px 20px; }
+  .logo { font-size: 14px; }
+  .nav-links { display: none !important; }
+
+  /* Hero text */
+  .hero-text { left: 24px; bottom: 40px; right: 24px; }
+  .hero-text h1 { font-size: clamp(36px, 10vw, 52px); }
+  .hero-text .sub { font-size: 10px; }
+  .contact-btn { display: none; }
+
+  /* Mobile cloud grid */
+  .mobile-nav {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 150;
+    width: 90%;
+  }
+  .mobile-nav-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    width: 100%;
+  }
+  .mobile-cloud {
+    position: relative;
+    cursor: pointer;
+    flex: 1;
+    max-width: 160px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .mobile-cloud svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .mobile-cloud span {
+    position: relative;
+    z-index: 2;
+    font-family: 'Gluten', cursive;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2a5a80;
+    text-align: center;
+    line-height: 1.2;
+    padding: 0 8px;
+    text-shadow: 0 1px 3px rgba(255,255,255,0.7);
+  }
+  .mobile-contact {
+    margin-top: 4px;
+    display: flex !important;
+    padding: 10px 28px;
+    border: 1px solid rgba(10,50,100,0.35);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #0a2540;
+    text-decoration: none;
+  }
+  .mobile-invite {
+    display: block !important;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #0d2d50;
+    text-align: center;
+    margin-bottom: 4px;
+    opacity: 0.8;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-nav { display: none !important; }
+  .mobile-contact { display: none !important; }
+  .mobile-invite { display: none !important; }
+}
+</style>

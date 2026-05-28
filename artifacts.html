@@ -82,7 +82,7 @@ h1 em{font-style:italic;color:#1a5a8a;}
   <p class="intro">Click any project to see the work.</p>
   <div class="grid">
 
-    <div class="card" onclick="open('thesis')">
+    <div class="card" onclick="showProject('thesis')">
       <img class="thumb" src="slides_fmt_1.jpeg" alt="Thesis"/>
       <div class="cbody">
         <h2>Navigating Cultural Sensitivity in Fashion</h2>
@@ -92,7 +92,7 @@ h1 em{font-style:italic;color:#1a5a8a;}
       </div>
     </div>
 
-    <div class="card" onclick="open('gear9')">
+    <div class="card" onclick="showProject('gear9')">
       <img class="thumb" src="slides_gear9_1.jpeg" alt="Gear9"/>
       <div class="cbody">
         <h2>Gear9 Agile Management Report</h2>
@@ -102,7 +102,7 @@ h1 em{font-style:italic;color:#1a5a8a;}
       </div>
     </div>
 
-    <div class="card" onclick="open('nafas')">
+    <div class="card" onclick="showProject('nafas')">
       <img class="thumb" src="new_nafas-01.jpg" alt="Nafas"/>
       <div class="cbody">
         <h2>Nafas AI — Business Plan &amp; App Design</h2>
@@ -112,7 +112,7 @@ h1 em{font-style:italic;color:#1a5a8a;}
       </div>
     </div>
 
-    <div class="card" onclick="open('poppi')">
+    <div class="card" onclick="showProject('poppi')">
       <img class="thumb" src="slides_poppi_1.jpeg" alt="Poppi"/>
       <div class="cbody">
         <h2>Poppi — Communication Strategy</h2>
@@ -122,7 +122,7 @@ h1 em{font-style:italic;color:#1a5a8a;}
       </div>
     </div>
 
-    <div class="card" onclick="open('fiestas')">
+    <div class="card" onclick="showProject('fiestas')">
       <img class="thumb" src="new_fiestas-1.jpg" alt="Fiestas de la Paloma"/>
       <div class="cbody">
         <h2>Fiestas de la Paloma — Campaign</h2>
@@ -132,7 +132,7 @@ h1 em{font-style:italic;color:#1a5a8a;}
       </div>
     </div>
 
-    <div class="card" onclick="open('lv')">
+    <div class="card" onclick="showProject('lv')">
       <img class="thumb" src="new_lv-1.jpg" alt="Neo-Heritage 2025"/>
       <div class="cbody">
         <h2>Neo-Heritage 2025 — Trend Report</h2>
@@ -209,7 +209,7 @@ const projects = {
   }
 };
 
-function open(key){
+function showProject(key){
   const p=projects[key];
   document.getElementById('pt').textContent=p.title;
   document.getElementById('ps').textContent=p.sub;
@@ -226,3 +226,23 @@ function closePopup(){
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
 </script>
 </body></html>
+<style>
+@media (max-width: 768px) {
+  nav { padding: 14px 20px !important; gap: 12px !important; }
+  .logo { font-size: 13px !important; }
+  .nl { gap: 10px !important; flex-wrap: wrap; justify-content: flex-end; }
+  .nl a { font-size: 9px !important; letter-spacing: 0.08em !important; }
+  .pw { padding: 90px 16px 60px !important; }
+  h1 { font-size: clamp(32px, 9vw, 48px) !important; margin-bottom: 10px !important; }
+  .grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .thumb { height: 140px !important; }
+  .cbody { padding: 14px 16px 18px !important; }
+  .cbody h2 { font-size: 15px !important; }
+  /* Popup goes full screen vertical on mobile */
+  .overlay { padding: 0 !important; align-items: flex-end !important; }
+  .popup { max-width: 100% !important; max-height: 90vh !important; border-radius: 20px 20px 0 0 !important; }
+  .pbody { flex-direction: column !important; }
+  .psum { width: 100% !important; border-right: none !important; border-bottom: 1px solid rgba(100,160,220,0.12) !important; max-height: 200px !important; }
+  .pgal { max-height: 340px !important; }
+}
+</style>
